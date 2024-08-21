@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="balloons">
+      <div class="balloon balloon1"></div>
+      <div class="balloon balloon2"></div>
+      <div class="balloon balloon3"></div>
+    </div>
+    <div class="card">
+      <h1>Happy Birthday, [Name]!</h1>
+      <p>
+        Wishing you a day filled with happiness and a year filled with joy. You are amazing, and today we celebrate you! 🎉
+      </p>
+      <button class="confetti-btn" onclick="showConfetti()">Celebrate!</button>
+    </div>
+  </div>
+
+  <!-- Place the script at the end of the body -->
+  <script>
+    function showConfetti() {
+      const confettiColors = ['#ff5e57', '#ffb5a7', '#ffd6e0', '#ffe3e3'];
+      const confettiContainer = document.createElement('div');
+      confettiContainer.className = 'confetti-container';
+      document.body.appendChild(confettiContainer);
+
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        confettiContainer.appendChild(confetti);
+      }
+
+      setTimeout(() => {
+        confettiContainer.remove();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
